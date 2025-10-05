@@ -10,12 +10,10 @@ app = Flask(__name__)
 
 
 # Load model and scaler
-curr_dir = os.getcwd()
-model_dir = os.path.join(os.path.dirname(os.path.dirname(curr_dir)),'core_ml', 'models')
-cost_estimator_model_path = os.path.join(model_dir, 'cost_predictor.joblib')
-cost_estimator_scaler_path = os.path.join(model_dir, 'cost_predictor_scaler.joblib')
-# ...existing code...
-# ...existing code...
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+model_dir = os.path.join(BASE_DIR, '..', 'model_service', 'core_ml', 'models')
+cost_estimator_model_path = os.path.abspath(os.path.join(model_dir, 'cost_predictor.joblib'))
+cost_estimator_scaler_path = os.path.abspath(os.path.join(model_dir, 'cost_predictor_scaler.joblib'))
 
 # Check if model files exist
 if not os.path.exists(cost_estimator_model_path):
