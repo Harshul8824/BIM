@@ -9,9 +9,11 @@ from feature_engineering import new_feature_engineering,new_features
 app = Flask(__name__)
 
 # Load model and scaler
-model_dir = os.path.join((os.getcwd()), 'core_ml/models')
-model = load(f"{model_dir}/random_forest_model.joblib")
-scaler = load(f"{model_dir}/scaler.joblib")
+curr_dir = os.getcwd()
+model_dir = os.path.join(os.path.dirname(os.path.dirname(curr_dir)),'model_service\core_ml', 'models')
+cost_estimator_model_path = os.path.join(model_dir, 'cost_predictor.joblib')
+cost_estimator_scaler_path = os.path.join(model_dir, 'cost_predictor_scaler.joblib')
+
 
 # Optional: define feature names for ordering input
 feature_names = ['Project_ID', 'Update_Day', 'Planned_Cost', 'Planned_Labour',
