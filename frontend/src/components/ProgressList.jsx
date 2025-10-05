@@ -56,7 +56,7 @@ const ProgressList = ({ project, onBack, onAddProgress }) => {
       console.log('Sending data to ML model:', data);
 
       // Send data to Flask ML model API
-      const response = await fetch("http://127.0.0.1:5000/predict", {
+      const response = await fetch("https://bim-rwba.onrender.com/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
