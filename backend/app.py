@@ -8,10 +8,14 @@ from feature_engineering import new_feature_engineering,new_features
 # Initialize Flask app
 app = Flask(__name__)
 
+
 # Load model and scaler
-model_dir = "D:/bmi/Tech_Tapper/core_ml/models"
-cost_estimator_model_path = f"{model_dir}/cost_predictor.joblib"
+curr_dir = os.getcwd()
+model_dir = os.path.join(os.path.dirname(os.path.dirname(curr_dir)),'core_ml', 'models')
+cost_estimator_model_path = os.path.join(model_dir, 'cost_predictor.joblib')
 cost_estimator_scaler_path = os.path.join(model_dir, 'cost_predictor_scaler.joblib')
+# ...existing code...
+# ...existing code...
 
 # Check if model files exist
 if not os.path.exists(cost_estimator_model_path):
