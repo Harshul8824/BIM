@@ -10,7 +10,7 @@ from data_generator import generate_synthetic_project_data
 
 def test_api():
     """Test the Flask API with sample data"""
-    
+
     # Generate sample data
     print("Generating sample data...")
     sample_data = generate_synthetic_project_data(num_samples=1)
@@ -26,7 +26,7 @@ def test_api():
     
     # Test the API
     try:
-        response = requests.post('http://localhost:5000/predict', 
+        response = requests.post('https://bim-rwba.onrender.com/predict', 
                                json=sample_record,
                                headers={'Content-Type': 'application/json'})
         

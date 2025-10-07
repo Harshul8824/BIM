@@ -1,12 +1,15 @@
+import numpy as np
+import pandas as pd
+
 new_features = ['cost_over_run', 'is_cost_overrun', 'Update_Month', 'Update_Quarter',
                 'Days_Since_Start', 'Planned_Cost_Millions', 'Actual_Cost_Millions',
                 'Material_Cost_Ratio', 'Labour_Per_Million', 'Labour_Efficiency',
                 'Material_Efficiency', 'Cost_Efficiency', 'Total_Delay', 'Delay_Ratio',
                 'Delay_Per_Work_Completed', 'Work_Delay_Interaction',]
 def new_feature_engineering(data):
-    df_features = df.copy()
+    df_features = data.copy()
 
-    df_features['cost_over_run'] = df['Planned_Cost']- df['Actual_Cost']
+    df_features['cost_over_run'] = data['Planned_Cost']- data['Actual_Cost']
     df_features["is_cost_overrun"] = np.where(df_features['cost_over_run']>0, 1, 0)
 
     # Convert Update_Day to datetime and extract features
